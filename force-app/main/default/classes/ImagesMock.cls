@@ -1,9 +1,10 @@
+/**
+ * Class used to set Mock response for image callout
+ * @param  HTTPRequest req 
+ * @return HTTPResponse res
+ */ 
 public with sharing class ImagesMock implements HttpCalloutMock{
-    /**
-     * Method used to set Mock response for image callout
-     * @param  HTTPRequest req 
-     * @return HTTPResponse res
-     */ 
+
     public HTTPResponse respond(HTTPRequest req) {
         HttpResponse res = new HttpResponse();
         res.setHeader('Content-Type', 'application/json');

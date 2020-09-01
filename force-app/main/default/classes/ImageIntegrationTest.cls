@@ -131,10 +131,10 @@ public without sharing class ImageIntegrationTest {
         System.assertEquals(2, result.size());
     }
     /**
-     * Test checks if ImageIntegration.deleteRedundant() deletes proper records.
+     * Test checks if ImageIntegration.deleteRedundantImages() deletes proper records.
      */ 
     @IsTest
-    static void deleteRedundantTest(){
+    static void deleteRedundantImagesTest(){
 
         Map<String,Image> sampleData = new Map<String,Image>();
         for(Integer i=0; i<4; i++){
@@ -149,7 +149,7 @@ public without sharing class ImageIntegrationTest {
         Set<String> externalIds = new Set<String>{'5','6','7','1','2'};
         
         Test.startTest();
-        ImageIntegration.deleteRedundant(externalIds, sampleData);
+        ImageIntegration.deleteRedundantImages(externalIds, sampleData);
         Test.stopTest();
         List<Image> result = [SELECT Id, ImageExternalId__c FROM Image];
         System.assertEquals(2, result.size());
