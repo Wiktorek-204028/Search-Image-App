@@ -1,0 +1,11 @@
+.THIS.background{
+    background-color: white;
+}
+.THIS.input-style{
+    width: 250px; 
+    margin-bottom: 5px; 
+    display:inline-block;
+}
+.THIS.column-margin{
+    margin-left: 22px;
+}

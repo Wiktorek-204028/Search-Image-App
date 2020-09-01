@@ -1,0 +1,57 @@
+<aura:component controller="SearchImageController" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:availableForFlowScreens"
+                access="global">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="images" type="List" />
+    <aura:attribute name="imagesConstant" type="List" />
+    <aura:attribute name="selectedImages" type="List" />
+    <aura:attribute name="emailAddress" type="String" />
+    <aura:attribute name="searchingTitle" type="String" />
+
+
+    <div class="background">
+        <div class="slds-grid">
+            <div class="slds-col">
+                <div style="margin-left: 22px;">
+                    <lightning:input style="width: 250px; margin-bottom: 5px; display:inline-block" type="text" name="searchKey" aura:id="searchKey" value="{!v.searchingTitle}" placeholder="Search by title" />
+                    <lightning:button  variant="brand" label="Search" onclick="{!c.search}" />
+                    <lightning:button  variant="brand" label="Show all" onclick="{!c.showAll}" />
+                </div>
+            </div>
+            <aura:if isTrue="{!v.selectedImages.length > 0}">
+                <div class="slds-col">
+                    <div style="margin-left: 22px;">
+                        <lightning:input style="width: 250px; margin-bottom: 5px; display:inline-block" type="email" value="{!v.emailAddress}" label="Enter email address" />
+                        <lightning:button  variant="brand" label="Send images" onclick="{!c.sendImages}" />
+                    </div>
+                </div>
+            </aura:if>
+
+        </div>
+    <!-- data table start-->
+    <div class="slds-scrollable_y" style="height:30rem;">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate">Name</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                    <aura:iteration items="{!v.images}" var="image">
+                        <tr>
+                            <th scope="row">
+                                <div class="slds-truncate"  >
+                                    <img src="{!image.Url}"/>
+                                </div>
+                            </th> 
+                        </tr>
+                    </aura:iteration>
+            </tbody>
+        </table>
+    </div>  
+</div>
+</aura:component>

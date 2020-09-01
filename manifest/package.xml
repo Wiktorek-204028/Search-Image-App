@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>ContentMock</members>
+		<members>ImageIntegration</members>
+		<members>ImageIntegrationScheduler</members>
+		<members>ImageIntegrationSchedulerTest</members>
+		<members>ImageIntegrationTest</members>
+		<members>ImageQueryService</members>
+		<members>ImageQueryServiceTest</members>
+		<members>ImagesMock</members>
+		<members>SearchImageController</members>
+		<members>SearchImageControllerTest</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>SearchImageComponent</members>
+		<name>AuraDefinitionBundle</name>
+	</types>
+	<types>
+		<members>Search_Image_Application</members>
+		<name>CustomApplication</name>
+	</types>
+	<types>
+		<members>Image</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Images1</members>
+		<name>FlexiPage</name>
+	</types>
+	<version>48.0</version>
+</Package>
