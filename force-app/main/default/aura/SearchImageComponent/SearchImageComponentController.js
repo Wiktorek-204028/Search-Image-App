@@ -6,7 +6,7 @@
       
       let email = component.get('v.emailAddress');
       if($A.util.isEmpty(email) || helper.validateEmail(email) === false){
-        helper.showToast('error', 'Invalid email','Invalid format of email or empty!');
+        helper.showToast('error', 'Invalid email','Invalid email format or empty!');
       }
       else{
         helper.sendImagesHelper(component, event);

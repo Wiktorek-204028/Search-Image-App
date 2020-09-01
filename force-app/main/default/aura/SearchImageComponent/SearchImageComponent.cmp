@@ -23,7 +23,7 @@
             <aura:if isTrue="{!v.selectedImages.length > 0}">
                 <div class="slds-col">
                     <div style="margin-left: 22px;">
-                        <lightning:input style="width: 250px; margin-bottom: 5px; display:inline-block" type="email" value="{!v.emailAddress}" label="Enter email address" />
+                        <lightning:input style="width: 250px; margin-bottom: 5px; display:inline-block" value="{!v.emailAddress}" placeholder="Enter email address" />
                         <lightning:button  variant="brand" label="Send images" onclick="{!c.sendImages}" />
                     </div>
                 </div>

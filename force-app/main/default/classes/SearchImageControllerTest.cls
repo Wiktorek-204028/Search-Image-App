@@ -40,10 +40,33 @@ public with sharing class SearchImageControllerTest {
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, new ContentMock());
         SearchImageController.sendEmailWithImages(sampleData, 'test@email.com');
-        Test.stopTest();
-        // Integer invocations = Limits.getEmailInvocations();
-        // System.assertEquals(1, invocations);
-        
+        Test.stopTest();      
+    }
+        /**
+     * Test checks if SearchImageController.sendEmailWithImages() handles exception properly
+     */
+    @IsTest
+    static void sendEmailWithImagesCatchTest(){
+        List<Image> sampleData = new List<Image>();
+        for(Integer i=0; i<2; i++){
+            Image singleImage = new Image();
+            singleImage.Title = 'testTitle'+i;
+            singleImage.Url = 'https://via.placeholder.com/150/3147bf';
+            singleImage.ImageExternalId__c = String.valueOf(i);
+            sampleData.add(singleImage);
+        }
+        insert sampleData;
+        Boolean exceptionThrown = false;
+        Test.startTest();
+        Test.setMock(HttpCalloutMock.class, new ContentMock());
+        try{
+            SearchImageController.sendEmailWithImages(sampleData, 'testemail.com');
+        }
+        catch(Exception ex){
+            exceptionThrown = true;
+        }
+        Test.stopTest(); 
+        System.assertEquals(true, exceptionThrown);     
     }
     /**
      * Test checks if SearchImageController.getContent() returns blob based on image url
